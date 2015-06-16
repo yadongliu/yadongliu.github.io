@@ -39,7 +39,7 @@ public class TicTacToe {
         if(winner!=null) {
             System.out.println("Winner is: " + winner);
         } else {
-            System.out.println("No Winner this round.");
+            System.out.println("No Winner this round. It is a tie!");
         }
     }
 
