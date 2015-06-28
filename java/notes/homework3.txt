@@ -1,0 +1,142 @@
+1. How many errors can you spot in the following code? List them.
+
+class hello
+{
+    public static void main ( String[] args ) {
+        System.out.println("hello world!");
+}
+
+
+2. The following are ALL legitimate data types in Java. Which ones are primitive, 
+and which ones are classes? Remember that class has member variables and methods.
+
+int
+String
+double
+Integer
+boolean
+Double
+
+Primitives: 
+Classes: 
+
+3. A variable is a name for holding some data of a certain type. Before you can use a variable in Java, 
+you have to declare them. Are the following declarations are correct? If wrong, correct them.
+
+String greetings = "Hello Worlds";
+
+
+float milkPrice = 3.99
+
+
+float double = 0.0;
+
+
+Integer score = "1";
+
+
+String[] schools = new String();
+
+
+4. Expressions are evaluated from left to right. Operators have different precedence. Just like you
+would remember from your middle school math. Order of operations is very important. 
+What's inside a parenthesis is evaluated first.
+
+int first = -1 * 9 - 2 * 3;
+
+int second = -1 * ( 9 - 2 ) * 3;
+
+What's the value of two int variable: first, second?
+
+
+5. Given the following class definition, which has two constructors: 
+
+public class FooClass {
+	int foo;
+
+	public FooClass() {
+		foo = 0;
+	}
+
+	public FooClass(int value) {
+		foo = value;
+	}
+}
+
+When I need to create FooClass objects, I can use either constuctor. After I run the following code,
+what do I expect the code to print out: 
+
+FooClass objectA = new FooClass();
+FooClass objectB = new FooClass(2);
+
+System.out.println( objectA.foo );
+System.out.println( objectB.foo );
+
+
+6. I spent quite a few minutes taking about variable scope during Saturday's class. 
+A method can take any number of arguments but these arguments's scope is only limited 
+to the method. In other words, other method can not see or use these arguments.
+(A method and a function are interchangeable terminology in Java).
+
+The following code got some errors. Can you spot them? How can you fix them?
+
+class Car
+{
+  // instance variables
+  double startMiles;   // Stating odometer reading
+  double endMiles;     // Ending odometer reading
+  double gallons;      // Gallons of gas used between the readings
+
+  // constructor that takes three arguments. 
+  Car(  double first, double last, double gals  )
+  {
+    startMiles = first ;
+    endMiles   = last ;
+    gallons    = gals ;
+  }
+
+  // methods
+  double calculateMPG()
+  {
+    return  (last - first)/gals  ; 
+  }
+
+}
+
+
+7. Programming Assignment.
+
+We talked about how to solve problems recursively in class. Can you use the same technique to solve 
+the Hanoi Tower game - moving n discs from first pole to the third?
+
+Let's say our Hanoi solver methos is called solve() and it takes four arguments.
+
+The first argument is n, the number of discs.
+The second argument is startPole, which is a String, representing the starting pole. 
+Similarly middlePole is the pole in the middle, endPole is the last pole. 
+
+When we need to move a disc from one pole to another, we call a helper method below:
+
+	void move(String fromPole, String toPole) 
+    {
+        System.out.println(fromPole + " -> " + toPole);
+    }
+
+
+
+    public void solve(int n, String startPole, String middlePole, String endPole) {
+    	if( n == 1 ) {
+	    	// base case: move the only disc from startPole to endPole
+	    	move(startPole, endPole);
+    	} else {
+    		// recursive case, solve Hanoi in 3 steps
+    		// step 1: move (n-1) discs from start to the middle, using endPole as the intermediary
+    		// step 2: move nth disc from start to end.
+    		// step 3: move (n-1) discs from the middle to the endPole, using startPole as the intermediary
+    	}
+
+	}
+
+Can you finish the rest of the implementation and run some tests?
+
+

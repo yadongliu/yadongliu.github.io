@@ -1,0 +1,9 @@
+Homework 4b
+
+The second part of homework #4 asks you to design a simple Java class called SavingsAccount.
+
+A savings account should have states such as: account number, account holder name, balance, interest rate.
+
+A savings account should allow its account holder to accept deposit, check balance, and earn interests. 
+
+You can put in a static main function to write some tests. 

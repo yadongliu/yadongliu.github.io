@@ -1,0 +1,68 @@
+In this homework, you are asked to install Android Studio.
+This will probably take 1 - 2 hours.
+
+We have been using Sublime Text for editing our Java source code. While it
+is a very nice editor, it does not provide any debugging tools. As your
+Java program becomes more complicated you will need a propper IDE 
+(aka Integrated Development Environment). 
+
+Popular IDE for Java programming include:
+- Eclipse (open source and free): one of the oldest Java IDE.
+- Intellij IDEA (commercial): one of nicest Java IDE but it is not free. You could apply for a free license for student on their website.
+- Android Studio (free): this is based on IntelliJ but provided by Google as a free download. 
+The best feature is that it is nicely integrated with Android SDK etc. The downside is that 
+you won't be able do non-Android development. For that, your free option would be Eclipse.
+
+We don't have a lot of time practice using Android Studio. My hope is that you can install 
+Android Studio on your own out of the class. We will then use Android Studio 
+for 1 or 2 programming demos during Saturday's class. After the summer camp is over,
+you will be able to use Android Studio to write more code. 
+
+
+Here are the stps you need to perform. If you have into any problems, do not panic. Try Google 
+to find a fix for your problem.
+
+1. Download Android Studio
+
+https://developer.android.com/sdk/index.html
+
+2. Install Android Studio on Windows or Mac
+
+http://www.techotopia.com/index.php/Setting_up_a_Windows,_Linux_or_Mac_OS_X_Android_Studio_Development_Environment#Installing_Android_Studio
+
+3. Launch Android Studio 
+
+Very Important Note: on Windows laptops, you need to run Android Studio as Administrator.
+
+To run an application one time with a full administrator access token:
+
+    Locate the program icon or a shortcut in Windows Explorer.
+    Right-click the program icon or shortcut, and then click Run as administrator.
+    When the UAC message is displayed, do one of the following:
+        If you are logged on as a standard user, or if UAC is configured to always require credentials, enter the appropriate administrative credentials, and then click OK.
+
+        If you are logged on as an administrator and UAC is not configured to always require credentials, click Yes to start the application.
+
+Instructions on the Setup Wizard: http://www.techotopia.com/index.php/Setting_up_a_Windows,_Linux_or_Mac_OS_X_Android_Studio_Development_Environment#The_Android_Studio_Setup_Wizard
+
+4. Install the latest Android SDK.
+
+http://www.techotopia.com/index.php/Setting_up_a_Windows,_Linux_or_Mac_OS_X_Android_Studio_Development_Environment#Installing_the_Latest_Android_SDK_Packages
+
+In the Android SDK Manager window, at least select the following Packages to install:
+
+1. Tools
+(but not the Preview channel)
+2. Android 5.1.1 (API 22)
+3. Android 4,4,2 (API 19)
+4. Android 4.0 (API 14)
+5. Additionally, under the Extras package, select:
+- Android Support Repository
+- Android Support Library
+- Intel x86 Emulator Accelerator (HAXM installer)
+
+5. Install HAXM
+
+You should have downloaded HAXM from the last step. Now you need to go to your Android SDK
+folder, navigate to folder: extras/intel, and run the HAXM installer. 
+

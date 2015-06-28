@@ -1,0 +1,320 @@
+1. Reading Assignments
+
+Chapter 3 - http://math.hws.edu/javanotes/c3/index.html
+Section 4, the for statement
+Section 8, Introduction to Arrays
+
+Chapter 4 - Section 4.2 Static Subroutines and Static Variables
+http://math.hws.edu/javanotes/c4/s2.html
+
+Chapter 5 - Section 5.1 Objects, Instance Methods, and Instance Variables
+http://math.hws.edu/javanotes/c5/s1.html
+
+2. Programming Excercise for Strings
+
+In this task, we are going to practice operations on Strings and arrays. 
+You are likely going to need these String functions to complete
+this assignment: length(), indexOf(int ch), charAt(int index), 
+substring(int beginIndex, int endIndex), etc.
+
+One important skill for a software engineer is to be able to read
+documentations and find the class or function names you need to use. 
+Read this String class doc for practice: 
+    http://docs.oracle.com/javase/8/docs/api/java/lang/String.html 
+
+Your task is complete the implementation of two empty functions inside 
+the following class. 
+
+public class Homework2 {
+    /*
+        you can put your tests inside the static main function
+     */
+    public static void main(String[] args) {
+        // Uncomment to test your functions below
+        // For example, you could do:
+        // String[] names = nameMixer("George Washington", "Barack Obama", "Bill Clinton");
+
+    }
+
+    /***
+     * This function takes in three names and returns an array of new names by mixing up
+     * given firstNames and lastNames and combining them into new names.
+     *
+     * You can't return any names that was passed into the function.
+     *
+     * @param name1 - a String representing a name where firstName and lastName are separated by a space.
+     * @param name2
+     * @param name3
+     * @return an array of names (of String type) for example,
+     * {"George Clinton", "Bill Washington", ... }
+     */
+    public static String[] nameMixer(String name1, String name2, String name3) {
+        String[] result = String[6];
+        create an array of firstNames;
+
+        create an array of lastNames;
+
+        loop through firstNames {
+            grab one from firstNames assign it to fname
+
+            loop through lastNames {
+                grab one from lastNames
+                assign lname 
+
+                newName = fname + " " + lname
+
+                result[place] = newName;
+            }
+        }
+        
+    }
+
+    /***
+     * This function takes our name mixer to a new level by taking
+     *  an array of names and returns an array of new names by mixing up
+     *  given firstNames and lastNames and combining them into new names.
+     *
+     * @param inNames - an array of names, where each name is a String
+     * @return - an array of names, where each name is a String
+     */
+    public static String[] superNameMixer(String[] inNames) {
+
+
+    }
+}
+
+3. Programming Homework #2
+
+You are going to apply what you learned so far to create your own Java classes; and 
+practice how to break down a large (maybe complex) programming job into smaller tasks. 
+
+You will create a Date class and implement a function that prints out all days of a given month:
+
+For example, if the date object represents June 17, 2015, when I can date.printMonth(), 
+you will print out:
+
+     June 2015
+Su Mo Tu We Th Fr Sa
+    1  2  3  4  5  6
+ 7  8  9 10 11 12 13
+14 15 16 17 18 19 20
+21 22 23 24 25 26 27
+28 29 30
+
+Let's break down how we might do this. 
+
+First, we will probably need a special constructor to initialize a date object, which 
+will have three pieces of information: day, month, year. So that we can get a date object
+representing June 17, 2015 as: 
+   date = new Date(17, 6, 2015);
+
+Now, in order to print out the calendar, you will need to know on which day of the week the 1st
+day of the month falls, and how many days the month has etc.
+
+In order to figure out how many days a month has, you will need to know one important piece of 
+information: whether the year is leap year or not. A leap year is any year divisible by 4, 
+except that a year divisible by 100 is not a leap year, except that a year divisible by 400 is a leap year after all. Hence, 1800 and 1900 are not leap years, but 1600 and 2000 are. 
+
+There are multiple ways to figure out on which day of the week the 1st day of the month falls. 
+One way is you first figure out on which day of the week the year starts. Then you can track how
+many days away is 1st day of month (say June) from Jan 1. of the same year. Remember that a week is 7
+days, now you can pretty easily calculate which day of the week is 1st of June. 
+
+Now the last piece of the puzzle is to calculate day of the week of Jan 1st of a given year. For
+this, we "cheat" a little bit by giving you a known fact that Jan 1st, 1000 is a Monday.
+Now you should be able to calculate how many days there is between Jan 1, 1000 and 
+Jan 1 of the year you are interested in.
+
+Here is a skeleton of the Date class. Now it is your turn to implement all the missing functions. 
+One requirement is that obviously you can NOT use Java's Date/Time classes to finish the homework 
+
+public class Date {
+    int year;
+    int month;
+    int day;
+
+    // Figure out what kind of properties of the Date object you need to keep track of
+    // Those would be your Date class's member variables
+
+
+    // default constructor takes no argument
+    public Date()
+    {
+        // what's a good default date?
+        // fill in your implementation below
+
+    }
+
+    // another constructor takes three arguments
+    public Date(int d, int m, int y)
+    {
+        // fill in your implementation below
+        day = d;
+        month = m;
+        year = y;
+    }
+
+    /** Returns the number of days in a given month.
+     *  @param month is a month, numbered in the range 1...12.
+     *  @param year is the year in question, with no digits omitted.
+     *  @return the number of days in the given month.
+     */
+    public static int daysInMonth(int month, int year) {
+        // fill in your implementation below
+
+
+    }
+
+    /** Returns the number of days in a given year */
+    public static int daysInYear(int year) {
+        // fill in your implementation below
+
+
+    }
+
+    /** Returns day of the week for Jan 1st of the given year */
+    public static int dayOfWeekForFirstDayOfYear(int year) {
+        // assuming you somehow know Jan 1, 1000 is a Monday.
+        // now you should be able to calculate how many days there is between
+        // Jan 1, 1000 and Jan 1 of the year you are interested in
+
+        // fill in your implementation below
+
+    }
+
+    /** Checks whether the given year is a leap year.
+     *  @return true if and only if the input year is a leap year.
+     */
+    public static boolean isLeapYear(int year) {
+        // fill in your implementation below
+
+    }
+
+
+    public printMonth()
+    {
+        // fill in your implementation below
+        // 
+
+        // month
+
+    }
+
+
+    // place your tests inside main
+    public static void main(String[] args)
+    {
+        Date testDate = new Date(1, 1, 2015);
+    }
+
+}
+
+
+
+4. Programming Homework #3 (bonus task)
+
+We learned how to create a simple game Tic Tac Toe from scratch in class. But the game requires
+two human players. Can you modify the game to allow one player to play against the computer?
+
+Basically, you develop an AI algorithm (aka. Artificial Intelligence) to strategically place 
+your move on the board? For example, if you already have two in a row, you basically take the 
+third and win. If your human opponent already has two in a rwo, your next move will have to be 
+block his third. So on and so forth ... Up to the challenge? 
+
+To help you get started, I included the original two human player game code below.  
+
+import java.util.Scanner;
+
+public class TicTacToe {
+    private char[] board = {'1','2','3','4','5','6','7','8','9'};
+    private String winner = null;
+    private int player = 0;
+
+	public static void main(String[] args) {
+        TicTacToe game = new TicTacToe();
+        game.startGame();
+	}
+
+    public void startGame() {
+        boolean won = hasWinner();
+        int moves = 0;
+
+        printBoard();
+        while (!won && moves<9) {
+
+            char mark = player==0 ? 'A' : 'B';
+
+            System.out.print(String.format("Player %c's turn: ", mark));
+            Scanner in = new Scanner(System.in);
+            int i = in.nextInt();
+
+            if (i >= 1 && i <= 9 && board[i-1]==i+'0') {
+                // System.out.println("You choose: " + board[i-1]);
+                board[i-1] = mark;
+                player = player==0 ? 1 : 0;
+                moves += 1;
+
+                won = hasWinner();
+                printBoard();
+            } else {
+                System.out.println("Try again with a number between 1-9.");
+            }
+        }
+
+        if(winner!=null) {
+            System.out.println("Winner is: " + winner);
+        } else {
+            System.out.println("No Winner this round. It is a tie!");
+        }
+    }
+
+    // print board
+    public void printBoard() {
+        int gridCount = board.length;
+        for(int row=0; row<3; row++) {
+            System.out.println(board[row*3] + "\t" +
+                    board[row*3+1] + "\t" +
+                    board[row*3+2] + "\t");
+        }
+    }
+
+    public boolean hasWinner() {
+        boolean won = false;
+        char winningChar = '\0';
+
+        if(board[0]==board[1] && board[1]==board[2]) {
+            won = true;
+            winningChar = board[0];
+        } else if(board[3]==board[4] && board[4]==board[5]) {
+            won = true;
+            winningChar = board[3];
+        } else if(board[6]==board[7] && board[7]==board[8]) {
+            won = true;
+            winningChar = board[6];
+        } else if(board[0]==board[3] && board[3]==board[6]) {
+            won = true;
+            winningChar = board[0];
+        } else if(board[1]==board[4] && board[4]==board[7]) {
+            won = true;
+            winningChar = board[1];
+        } else if(board[2]==board[5] && board[5]==board[8]) {
+            won = true;
+            winningChar = board[2];
+        } else if(board[0]==board[4] && board[4]==board[8]) {
+            won = true;
+            winningChar = board[0];
+        } else if(board[2]==board[4] && board[4]==board[6]) {
+            won = true;
+            winningChar = board[2];
+        }
+
+        if(won) {
+            winner = String.format("Player %c", winningChar);
+        }
+
+        return won;
+    }
+}
+
+
+
