@@ -1,0 +1,62 @@
+Getting Stock Quotes From Yahoo!
+
+
+During the summer camp, you already learned how to retrieve a text file from the Internet.
+Now you can use that knowledge to write your own stock quote tool. 
+
+For some background information, a public company's stock is identified by a so-called
+stock symbol, which can be 1, 2, 3, or 4 letters. For example, Google's stock symbol is
+GOOG; and Facebook's is FB
+
+You can concat the base url "http://finance.yahoo.com/q?s=" and stock symbol "FB" to create
+the url to fetch a stock quote page. 
+
+Try it in your favorite browser: http://finance.yahoo.com/q?s=FB
+
+You will write a Java class called StockQuote.java that takes one argument (which is a stock symbol)
+and prints the stock price to the terminal.
+
+So after you are done, you should be able to do:
+
+Compile:  javac StockQuote.java
+Run:      java StockQuote FB
+
+Some more notes to help you tackle the problem.
+
+Obvisouly you can do this in steps:
+
+Step 1 would be retrieve the html file from a given url. 
+(html file is just a plain text file with html tags: http://www.simplehtmlguide.com/whatishtml.php)
+So naturally you can use a String object to store the retrieved html file. 
+
+
+Step 2: parse the returned html String object and look for tags that encloses information you
+are interested in. 
+
+For example, if you open http://finance.yahoo.com/q?s=FB in your browser and view its Source 
+(In Chrome, you can do View->Developer->View Source)
+
+You will find that the following section contains the Company name that corresponds with the stock symbol 'FB':
+
+<title>FB: Summary for Facebook, Inc.- Yahoo! Finance</title>
+
+So to write a simple string parser to return the company, I could do:
+
+   // Given symbol, get current stock name.
+   public static String name(String html, String symbol) {
+       int p    = html.indexOf("<title>", 0);
+       int from = html.indexOf("Summary for ", p);
+       int to   = html.indexOf("- Yahoo! Finance", from);
+       String name = html.substring(from + 12, to);
+       return name;
+   }
+
+
+Step 3: You are going to write a parser to return stock price. 
+
+Use FB as an example again, here is relevant section of text you would need to search for and parse:
+
+<span id="yfs_l84_fb">98.39</span>
+
+98.39 is the price of Facebook's stock on Tuesday, July 21, 2015.
+
