@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Programming Java - Week 2</title>
+
+		<meta name="description" content="Programming Java - Week 2">
+		<meta name="author" content="Yadong Liu">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../tools/reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="../tools/reveal.js/css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../tools/reveal.js/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Java Programming</h1>
+					<h3>Week 2</h3>
+					<p>
+						<small>Created by <a href="http://yadongliu.github.io">Yadong Liu</a> </small>
+					</p>
+				</section>
+
+				<section>
+					<h3>Week 1 Homework Demos</h3>
+				</section>
+
+				<section data-transition="slide">
+					<h2>A bit of news</h2>
+					<img src="images/Self-Driving-Uber.png" />
+					<p>
+						<small>Source: <a href="https://newsroom.uber.com/pittsburgh-self-driving-uber/">Uber, 09/14/2016</a></small>
+					</p>
+				</section>
+
+				<section data-transition="slide">
+					<h3>More Variables Examples</h3>
+					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
+				Built-in types: 
+				boolean success = true;
+				float   speed = 4.0f;
+				double  savings = 1.1e6;
+				int 	intA = 65;
+				int     hexA = 0x41;
+					</code></pre>
+				</section>
+
+				<section data-transition="slide">
+					<h3>More about String</h3>
+					<pre><code>
+String quote = new String("some famous quote");
+int len = quote.length(); // total characters in string
+String lastTwo = quote.subString(len-2); // beginIndex, endIndex
+String firstTwo = quote.subString(0, 2); // beginIndex, endIndex
+indexOf("famous"); // return first occurance
+lastIndexOf("quo"); 
+boolean isEmpty();
+boolean startsWith("");
+					</code></pre>
+
+					<p class="footer" style="font-size: 14px;"><a href="https://docs.oracle.com/javase/8/docs/api/index.html?java/lang/String.html">https://docs.oracle.com/javase/8/docs/api/index.html?java/lang/String.html</a></p>					
+				</section>
+
+				<section data-transition="slide">
+					<h3>Literals v.s. Variables</h3>
+					<p lass="fragment visible">a.k.a Constants </p>
+					<p lass="fragment visible">The value of a variable can change </p>
+					<p lass="fragment visible">The name of a variable is important </p>
+				</section>
+
+				<section data-transition="slide">
+					<h3>Variable Naming</h3>
+					<ul>
+					<li>Variable names are case-sensitive</li>
+					<li>Contains letters, numbers and underscore '_' </li>
+					<li>Use meaningful word</li>
+					<li>More then one word: firstSecondThird </li>
+					<li>Can not start with numbers</li>
+					<li>Can not have spaces</li>
+					<li>Can not use keywords</li>
+					</ul>
+				</section>
+
+				<section data-transition="slide">
+					<h3>Operators </h3>
+						<p class="fragment visible">Assignment:  = </p>
+						<p class="fragment visible">Arithmetic: +, -, /, *, %</p>
+						<p class="fragment visible">Unary operator: ++, --, !</p>
+						<p class="fragment visible">Equality operator: ==, !=, >, <, >=, <= </p>
+						<p class="fragment visible">Conditional operator: &&, ||,  ? : </p>
+				</section>
+
+				<section data-transition="slide">
+					<h3>Ternary Operator ? :</h3>
+					<pre>
+		test ? expression1 : expression2
+
+		if ... then ... else
+					
+	grade>=9 ? "high schooler" : "middle schooler" 
+
+String greetings = "Hello " + (grade>=9 ? "high schooler" : "middle schooler");
+					</pre>					
+				</section>
+
+				<section data-transition="slide">
+					<h3>Conditional Operators</h3>
+					<h4>Truth Table </h4>
+					<table>
+						<thead>
+							<tr>
+								<th>"&&"</th>
+								<th>T</th>
+								<th>F</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>T</td>
+								<td>T</td>
+								<td>F</td>
+							<tr>
+							<tr>
+								<td>F</td>
+								<td>F</td>
+								<td>F</td>
+							<tr>
+							<tr>
+								<td>"||"</td>
+								<td></td>
+								<td></td>
+							<tr>
+							<tr>
+								<td>T</td>
+								<td>T</td>
+								<td>T</td>
+							<tr>
+							<tr>
+								<td>F</td>
+								<td>T</td>
+								<td>F</td>
+							<tr>
+						</tbody>
+					</table>
+					<p>Note: short-circuit</p>
+				</section>
+
+				<section data-transition="slide">
+					<h2>The Simplest Java Program</h2>
+					<pre><code>
+public class HelloWorld {
+    public static void main(String[] args)
+    {
+        System.out.println("Hello World");
+    }
+}
+					</code></pre>					
+				</section>
+
+				<section data-transition="slide">
+					<h3>Expression & Statements</h3>
+					<pre><code>
+			int first = 4;
+			int second = 6;
+			int sum = first + second;
+					</code></pre>
+
+					<h3>Blocks</h3>
+					<p><pre>
+			if(success) {
+				int age = 14;
+				float height = 64.0f;
+			}</pre>
+					</p>
+				</section>
+
+				<section data-transition="slide">
+					<h3>Control Flow Statement</h3>
+					<h3>If ... else if ... else</h3>
+					<pre><code data-trim contenteditable>
+String grade;
+if(percentage>=95) {
+	grade = "A";
+} else if(percentage>90 percentage&lt95) {
+	grade = "A-";
+} else if(){
+	...
+} else {
+	...
+}
+			</code>
+			</pre>				
+				</section>
+
+				<section data-transition="slide">
+					<h3>for loop</h3>
+					<pre><code>
+for(initialization; continuation test; increment) {
+	// block of code
+}
+// Example: 
+int len = greetings.length();
+for(int i=0; i &lt len; i++) {
+	char c = greetings.charAt(i);
+	System.out.println("Char at index: " + i + " is " + c);
+}
+					</code></pre>					
+				</section>
+
+				<section data-transition="slide">
+					<h3>while and do-while</h3>
+					<pre><code>
+while(test condition) {
+	// block of code
+}
+do {
+	// block of code
+} while(test condition)
+// Example: 
+int len = greetings.length();
+int i = 0;
+while(i < len) {
+	char c = greetings.charAt(i);
+	System.out.println("Char at index: " + i + " is " + c);
+	i++;
+}
+					</code></pre>					
+				</section>
+
+				<section data-transition="slide">
+					<h3>switch ... case ...</h3>
+					<pre><code>
+switch(variable) {
+    case 1:
+    case 2:
+    default: 
+}
+// Example: 
+
+					</code></pre>					
+				</section>
+
+				<section data-transition="slide">
+					<h3>Solving Square Root</h3>
+					<pre><code>
+			number: x
+			start with a guess: g
+			calculate: x / g
+			check if x/g close enough to g
+			if not
+			    make a new guess
+			if yes
+				guess is your answer 
+					</code></pre>
+					<p class="footer" style="font-size: 14px;">http://www.cs.wustl.edu/~kjg/CS101_SP97/Notes/SquareRoot/sqrt.html</p>
+				</section>
+
+				<section data-transition="slide">
+					<h3>Use Function</h3>
+					
+				</section>
+
+				<section data-transition="slide">
+					<h2>Program Structure</h2>
+					<p class="fragment visible">Blocks of Code</p>
+					<p class="fragment visible">Function</p>
+					<p class="fragment visible">Modules</p>
+					<p class="fragment visible">Libraries</p>
+				</section>
+
+
+				<section style="text-align: left;">
+					<h3>THE END</h3>
+					<p>
+						Homework: 
+					</p>
+				</section>
+
+
+
+			</div>
+
+		</div>
+
+		<script src="../tools/reveal.js/lib/js/head.min.js"></script>
+		<script src="../tools/reveal.js/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../tools/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../tools/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../tools/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../tools/reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../tools/reveal.js/plugin/zoom-js/zoom.js', async: true },
+					{ src: '../tools/reveal.js/plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
