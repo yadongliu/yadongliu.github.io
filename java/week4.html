@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Programming Java - Week 4</title>
+
+		<meta name="description" content="Programming Java - Week 4">
+		<meta name="author" content="Yadong Liu">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../tools/reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="../tools/reveal.js/css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../tools/reveal.js/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Java Programming</h1>
+					<h3>Week 4</h3>
+					<p>
+						<small>Created by <a href="http://yadongliu.github.io">Yadong Liu</a> </small>
+					</p>
+				</section>
+
+<section data-transition="slide">
+	<h3>Coding Exercise</h3>
+	<p>Convert number of seconds to "HH:MM:SS"</p>
+	<pre><code class="fragment fade-in" style="font-size: 18px;">
+	public static String formatOfSeconds(int totalSeconds) {
+		String result = "";
+		int hours = totalSeconds / 3600;
+		int minutes = (totalSeconds % 3600) / 60;
+		int seconds = (totalSeconds % 3600) % 60;
+
+		result = String.format("%02d", hours);
+		result += ":" + String.format("%02d", minutes);
+		result += ":" + String.format("%02d", seconds);
+
+		return result;
+	}
+	</code></pre>
+</section>
+
+<section data-transition="slide">
+	<h3>Coding Exersize</h3>
+	<pre><code class="fragment fade-in" style="font-size: 18px;">
+public static String doSomething(String s) {
+	String result="";
+	String temp;
+	for(int i=s.length()-1; i>=0; i--) {
+		temp = s.substring(i, i+1);
+		result = result + temp;
+	}
+	return result;
+}
+	</code></pre>
+</section>
+
+<section data-transition="slide">
+	<h3>Array</h3>
+	<p>array: holding a fixed number of values of a single type. </p>
+	<pre><code style="font-size: 18px;">
+	// declare an array
+	int[] scores;
+	double[] arrayOfDoubles;
+	char[] arrayOfChars;
+	String[] arrayOfStrings;
+	</code></pre>
+</section>
+
+<section data-transition="slide">
+	<h3>Array</h3>
+	<p>Creating an array</p>
+	<pre><code style="font-size: 18px;">
+	scores = new int[10];
+	</code></pre>
+
+	<p class="fragment fade-in">Initializing an array</p>
+	<pre><code class="fragment fade-in" style="font-size: 18px;">
+	scores[0] = 10;
+	scores[1] = 20;
+	...
+	</code></pre>
+</section>
+
+<section data-transition="slide" >
+	<h3>More Arrays</h3>
+	<pre><code>
+    String[] names = {"Bezos", "Pichai", "Wang", "Zuckberg"};
+    int count = names.length;
+    String name = names[0];
+        
+    int[] scores = {12, 34, 56};
+    int scoreCount = scores.length;
+
+    for(int i=0; i&lt;scoreCount; i++) {
+        System.out.println(scores[i]);
+    }
+	</pre></code>
+</section>
+
+<section data-transition="slide" >
+	<h3>Define Class</h3>
+	<p>Instance variables</p>
+	<pre><code>
+public class Book {
+	private String title;
+	private String author;
+	private int numOfPage;
+	private String coverImageUrl;
+
+}
+	</pre></code>
+</section>
+
+<section data-transition="slide" >
+	<h3>Define Class</h3>
+	<p>Instance methods</p>
+	<pre><code>
+public class Book {
+	// Constructor
+	public Book(String sTitle, String sAuthor) {
+		title = sTitle;
+		author = sAuthor;
+	} 
+
+	// Accessor
+	public String getTitle() {
+		return title;
+	}
+}
+	</pre></code>
+</section>
+
+<section data-transition="slide" >
+	<h3>List</h3>
+	<pre><code>
+	public interface List&ltE>
+
+	int size();
+	boolean add(E e);
+	E       get(int index);
+
+	</pre></code>
+</section>
+
+<section data-transition="slide" >
+	<h3>Reading from File</h3>
+	<pre><code>
+  String fileName = "integerarray.txt";
+  Path filePath = Paths.get(fileName);
+  try {
+    List&ltString> allLines = Files.readAllLines(Paths.get(fileName), 
+                                  StandardCharsets.UTF_8);
+    int count = allLines.size();
+    for (String line : allLines) {
+      int n = Integer.parseInt(line);
+      System.out.println(n);
+    }
+  } catch (Exception e) {
+  }
+	</pre></code>
+</section>
+
+				<section style="text-align: left;">
+					<h3>THE END</h3>
+					<p>
+
+					</p>
+				</section>
+
+
+
+			</div>
+
+		</div>
+
+		<script src="../tools/reveal.js/lib/js/head.min.js"></script>
+		<script src="../tools/reveal.js/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../tools/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../tools/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../tools/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../tools/reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../tools/reveal.js/plugin/zoom-js/zoom.js', async: true },
+					{ src: '../tools/reveal.js/plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
