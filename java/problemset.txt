@@ -1,0 +1,14 @@
+ARRAY:
+
+1. Write a Program in Java to fill a 2-D array with the first ‘m*n’ prime numbers, where ‘m’ is the number of rows and ‘n’ is the number of columns.
+
+
+2. Write a program in Java to print a magic matrix:
+
+A square matrix is said to be a Magic Square, if the sum of each row, each column and each diagonal is same. Write a program to enter an integer number ‘n’. Create a magic square of size ‘n*n’. Finally, print the elements of the matrix as Magic Square. (Note n<=5)
+
+3. Write a Program in Java to fill a square matrix of size ‘n*n” in a circular fashion (clockwise) with natural numbers from 1 to n*n, taking ‘n’ as input.
+
+For example: if n = 4, then n*n = 16, hence the array will be filled as given below.
+
+ 
